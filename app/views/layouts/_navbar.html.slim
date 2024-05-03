@@ -1,4 +1,5 @@
 header.navbar
+  = link_to "Home", root_path, class: "navbar__left"
   - if user_signed_in?
     .navbar__name
       = current_user.pseudo
