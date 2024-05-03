@@ -1,0 +1,14 @@
+en:
+  simple_form:
+    placeholders:
+      resto:
+        date: When will the resto happen ?
+    labels:
+      resto:
+        date: Date
+
+  helpers:
+    submit:
+      resto:
+        create: Create resto
+        update: Update resto
