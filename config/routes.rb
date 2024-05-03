@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   root "pages#landing"
 
   resources :restos
+  resources :participations, only: %i[ index create destroy]
 end
