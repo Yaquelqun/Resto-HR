@@ -3,3 +3,7 @@
   .item__actions
     = button_to "Delete", resto_path(resto), method: :delete, class: "btn btn--light"
     = link_to "Edit", edit_resto_path(resto), method: :put, class: "btn btn--light"
+    - if current_user.restos.include? resto
+      = button_to "Already registered", nil, class: "btn btn--disabled", disabled: true
+    - else
+      = button_to "Participate", participations_path(resto_id: resto.id), class: "btn btn--secondary"

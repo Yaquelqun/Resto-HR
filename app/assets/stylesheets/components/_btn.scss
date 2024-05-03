@@ -44,6 +44,11 @@
     }
   }
 
+  &--disabled {
+    color: var(--color-white);
+    background-image: linear-gradient(to right, red, blue);
+  }
+
   &--light {
     color: var(--color-dark);
     background-color: var(--color-light);

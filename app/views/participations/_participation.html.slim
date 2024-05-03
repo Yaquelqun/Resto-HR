@@ -1,4 +1,4 @@
 .item
-  = link_to participation.resto.date, resto_path(resto)
+  = link_to participation.resto.date, resto_path(participation.resto)
   .item__actions
     = button_to "Delete", participation_path(participation), method: :delete, class: "btn btn--light"
