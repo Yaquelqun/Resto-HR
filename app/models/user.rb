@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :participations
   has_many :restos, through: :participations
+  has_many :feedbacks, through: :participations
 end
