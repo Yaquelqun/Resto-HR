@@ -2,3 +2,6 @@
   .header
     h1
       | Welcome to the HR Resto app =D
+
+  - if user_signed_in?
+    = link_to "See Restos", restos_path, class: "btn btn--primary"
