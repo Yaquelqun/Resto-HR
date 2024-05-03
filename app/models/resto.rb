@@ -1,0 +1,3 @@
+class Resto < ApplicationRecord
+
+end

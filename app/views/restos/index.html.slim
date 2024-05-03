@@ -1,0 +1,7 @@
+main.container
+  .header
+    h1
+      | Restos
+    = link_to "New resto", new_resto_path, class: "btn btn--primary"
+  
+  = render @restos
