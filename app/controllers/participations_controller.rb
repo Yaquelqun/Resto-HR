@@ -9,4 +9,10 @@ class ParticipationsController < ApplicationController
     flash[:success] = "Participation registered"
     redirect_to restos_path
   end
+
+  def destroy
+    Participation.find(params[:id]).destroy
+    flash[:success] = "Participation successfully destroyed"
+    redirect_to participations_path
+  end
 end
