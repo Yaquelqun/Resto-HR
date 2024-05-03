@@ -7,4 +7,49 @@ class RestosController < ApplicationController
   def new
     @resto = Resto.new
   end
+
+  def create
+    @resto = Resto.new(resto_params)
+    if @resto.save
+      flash[:success] = "New Resto successfully planned for the #{@resto.date}"
+      redirect_to restos_path
+    else
+      flash[:error] = "There was a problem saving the resto"
+      render :new
+    end
+  end
+
+  def edit
+    @resto = Resto.find(params[:id])
+  end
+
+
+  def update
+    @resto = Resto.find(params[:id])
+    if @resto.update(resto_params)
+      flash[:success] = "Resto successfully updated for the #{@resto.date}"
+      redirect_to restos_path
+    else
+      flash[:error] = "There was a problem saving the resto"
+      render :edit
+    end
+  end
+
+  def destroy
+    resto = Resto.find(params[:id])
+
+    if resto.destroy
+      flash[:success] = "Resto for the #{resto.date} successfully destroyed"
+      redirect_to restos_path
+    else
+      flash[:error] = "There was a problem destroying the resto"
+      redirect_to restos_path
+    end
+  end
+
+  private
+
+  def resto_params
+    @resto_params ||= params.require(:resto).permit(:date)
+  end
 end

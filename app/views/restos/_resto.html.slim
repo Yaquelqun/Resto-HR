@@ -1,5 +1,5 @@
 .item
   = link_to resto.date, resto_path(resto)
   .item__actions
-    = button_to "Delete", quote_path(quote), method: :delete, class: "btn btn--light"
-    = link_to "Edit", edit_quote_path(quote), method: :put, class: "btn btn--light"
+    = button_to "Delete", resto_path(resto), method: :delete, class: "btn btn--light"
+    = link_to "Edit", edit_resto_path(resto), method: :put, class: "btn btn--light"
