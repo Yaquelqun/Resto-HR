@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   root "pages#landing"
 
   resources :restos
-  resources :participations, only: %i[ index create destroy]
+  resources :participations, only: %i[ index create destroy] do
+    resources :feedbacks, controller: 'participations/feedbacks'
+  end
 end

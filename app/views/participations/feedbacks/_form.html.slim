@@ -1,0 +1,9 @@
+= simple_form_for feedback, url: participation_feedbacks_path(participation_id: feedback.participation_id), html: { class: "item form" } do |f|
+  - if feedback.errors.any?
+      .error-message
+        = feedback.errors.full_messages.to_sentence.capitalize
+
+  = f.label :target
+  = f.association :target, label_method: :pseudo, prompt: 'Choose a target'
+  = link_to "Cancel", participation_path(id: feedback.participation_id), class: "btn btn--light"
+  = f.submit class: "btn btn--secondary"

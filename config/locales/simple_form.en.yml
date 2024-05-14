@@ -6,6 +6,8 @@ en:
     labels:
       resto:
         date: Date
+      feedback:
+        target: Who do you want to give feedback to ?
 
   helpers:
     submit:

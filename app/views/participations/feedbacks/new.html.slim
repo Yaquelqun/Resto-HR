@@ -1,0 +1,8 @@
+main.container
+  = link_to sanitize("&larr; Back to participations"), participations_path
+
+  .header
+    h1
+      |New Feedback
+
+= render "form", feedback: @feedback
