@@ -1,5 +1,6 @@
 .item
-  = link_to resto.date, resto_path(resto)
+  = link_to resto.humanized_description, resto_path(resto)
+  
   .item__actions
     = button_to "Delete", resto_path(resto), method: :delete, class: "btn btn--light"
     = link_to "Edit", edit_resto_path(resto), method: :put, class: "btn btn--light"
