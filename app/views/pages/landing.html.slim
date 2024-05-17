@@ -1,9 +1,6 @@
-.main.container
-  .header
-    h1
-      | Welcome to the HR Resto app =D
-
-  - if user_signed_in?
-    = link_to "See Restos", restos_path, class: "btn btn--primary"
-    br
-    = link_to "My Participations", participations_path, class: "btn btn--primary", style: "margin-top:10px;"
+.container
+  .main
+    - if user_signed_in?
+      = button_to "See Restos", restos_path, method: :get
+      br
+      = button_to "My Participations", participations_path, method: :get
