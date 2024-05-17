@@ -3,20 +3,22 @@
   <head>
     <title>HR Resto</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
   <body>
-    <%= render "layouts/navbar" %>
+    <main class="container">
+      <%= render "layouts/navbar" %>
 
-    <div id="flash" class= 'flash'>
-      <%= render "layouts/flash" %>
-    </div>
+      <div id="flash" class= 'flash'>
+        <%= render "layouts/flash" %>
+      </div>
 
-    <%= yield %>
+      <%= yield %>
+    </main>
   </body>
 </html>

@@ -1,8 +1,14 @@
-header.navbar
-  = link_to "Home", root_path, class: "navbar__left"
-  - if user_signed_in?
-    .navbar__name
-      = current_user.pseudo
-    = button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn--dark"
-  - else
-    = link_to "Sign in", new_user_session_path, class: "btn btn--dark navbar__right"
+nav
+  ul
+    li
+      = link_to "Home", root_path
+  ul
+    - if user_signed_in?
+      li
+        strong
+          = current_user.pseudo
+      li
+        = link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: 'secondary'
+    - else
+      li
+        = link_to "Sign in", new_user_session_path
