@@ -8,6 +8,10 @@ class RestosController < ApplicationController
     @resto = Resto.new
   end
 
+  def show
+    @resto = Resto.find(params[:id])
+  end
+
   def create
     @resto = Resto.new(resto_params)
     if @resto.save
