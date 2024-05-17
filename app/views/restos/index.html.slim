@@ -1,7 +1,9 @@
-main.container
-  .header
+.container
+  header
     h1
       | Restos
-    = link_to "New resto", new_resto_path, class: "btn btn--primary"
-  
-  = render @restos
+  main
+    .container-fluid
+      = button_to "New resto", new_resto_path, method: :get
+    .container
+      = render @restos
