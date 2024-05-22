@@ -9,7 +9,7 @@ class RestosController < ApplicationController
   end
 
   def show
-    @resto = Resto.find(params[:id])
+    @resto = Resto.includes([:participations, :users, feedbacks: [:user, :target] ]).find(params[:id])
   end
 
   def create

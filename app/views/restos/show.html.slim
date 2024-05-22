@@ -4,20 +4,7 @@
       = link_to sanitize("&larr; Back to restos"), restos_path
     .container-fluid
       .grid
-        article
-          header
-            h5
-              | General information
-          strong
-            | date: 
-          = "#{@resto.humanized_date}"
-          br
-          strong
-            | participants: 
-          em data-tooltip="#{@resto.users.pluck(:pseudo).to_sentence}"
-            = "#{@resto.participations.count}"
-        article
-          header
-            h5
-              | Actions
-          = render "actions", resto: @resto
+        = render "restos/show/general_information", resto: @resto
+        = render "restos/show/actions", resto: @resto
+    .container-fluid
+      = render "restos/show/feedback_list", resto: @resto

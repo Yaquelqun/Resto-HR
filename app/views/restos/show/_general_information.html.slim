@@ -1,0 +1,12 @@
+article
+  header
+    h5
+      | General information
+  strong
+    | date: 
+  = "#{@resto.humanized_date}"
+  br
+  strong
+    | participants: 
+  em data-tooltip="#{@resto.users.pluck(:pseudo).to_sentence}"
+    = "#{@resto.participations.count}"

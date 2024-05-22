@@ -1,0 +1,18 @@
+table
+  thead
+    tr
+      th scope="col"
+        | From
+      th scope="col"
+        | To
+      th scope="col"
+        | Status
+  tbody
+    - feedbacks.each do |feedback|
+      tr
+        th scope="row"
+          = feedback.user.pseudo
+        td
+          = feedback.target.pseudo
+        td
+          = feedback.state
