@@ -4,5 +4,6 @@ main.container
   .header
     h1
       |New Feedback
-
-= render "form", feedback: @feedback
+  article
+    .container-fluid
+      = render "form", feedback: @feedback

@@ -1,5 +1,7 @@
-.item
-  = link_to participation.resto.date, resto_path(participation.resto)
-  .item__actions
-    = link_to "Add Feedback", new_participation_feedback_path(participation_id: participation), class: "btn btn--secondary"
-    = button_to "Delete", participation_path(participation), method: :delete, class: "btn btn--light"
+article
+  .container-fluid
+    .grid
+      .
+        = link_to participation.resto.humanized_description, resto_path(participation.resto)
+      = button_to "Add Feedback", new_participation_feedback_path(participation_id: participation), method: :get, class: "btn btn--secondary"
+      = button_to "Delete", participation_path(participation), method: :delete, class: "btn btn--light"
