@@ -1,12 +1,23 @@
-main.container
-  .container.container--row
-    .item
-      | test
-    .item
-      | test
-    .item
-      | test
-    .item
-      | test
-    .item
-      | test
+.container
+  main
+    .container-fluid style="padding-bottom: 0.5em;"
+      = link_to sanitize("&larr; Back to restos"), restos_path
+    .container-fluid
+      .grid
+        article
+          header
+            h5
+              | General information
+          strong
+            | date: 
+          = "#{@resto.humanized_date}"
+          br
+          strong
+            | participants: 
+          em data-tooltip="#{@resto.users.pluck(:pseudo).to_sentence}"
+            = "#{@resto.participations.count}"
+        article
+          header
+            h5
+              | Actions
+          = render "actions", resto: @resto

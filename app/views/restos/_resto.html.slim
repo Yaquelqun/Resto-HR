@@ -3,9 +3,4 @@ article
     .grid
       .
         = link_to resto.humanized_description, resto_path(resto)
-      = button_to "Delete", resto_path(resto), method: :delete, class: "secondary"
-      = button_to "Edit", edit_resto_path(resto), method: :put
-      - if current_user.restos.include? resto
-        = button_to "Already registered", nil, disabled: true, class: "contrast"
-      - else
-        = button_to "Participate", participations_path(resto_id: resto.id), class: "contrast"
+      = render "actions", resto: resto

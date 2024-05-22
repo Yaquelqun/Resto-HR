@@ -4,6 +4,10 @@ class Resto < ApplicationRecord
   has_many :feedbacks, through: :participations
 
   def humanized_description
-    date.strftime("%A, %B %d, %Y") + " participants: #{users.count}"
+    humanized_date + " " + "participants: #{users.count}"
+  end
+
+  def humanized_date
+    date.strftime("%A, %B %d, %Y")
   end
 end
