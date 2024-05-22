@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    unless params[:user][:email].match? /ringtwice.be/
+    unless params[:user][:email].match? /ringtwice.com/
       flash[:error] = "Please use your Ringtwice email"
       redirect_to new_user_registration_path and return
     end
