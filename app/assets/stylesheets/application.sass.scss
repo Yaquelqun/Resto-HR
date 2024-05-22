@@ -1,6 +1,9 @@
 
 // // Entry point for your Sass build
-@use "@picocss/pico/scss";
+@use "@picocss/pico/scss" with(
+  $theme-color: "pumpkin"
+);
+
 // // Mixins
 // @import "mixins/media";
 

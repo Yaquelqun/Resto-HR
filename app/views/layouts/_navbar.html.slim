@@ -3,7 +3,7 @@ nav
     li
       = link_to "Home", root_path
   ul
-    = link_to "See Restos", restos_path if user_signed_in?
+    = link_to "See Restos", restos_path, class: "pico-color-pink-500" if user_signed_in?
   ul
     = link_to "My Participations", participations_path if user_signed_in?
   ul
