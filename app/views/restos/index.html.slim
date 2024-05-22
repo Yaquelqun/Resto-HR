@@ -1,9 +1,10 @@
 .container
   header
-    h1
-      | Restos
+    .container
+      .grid
+        h1
+          | Restos
+        = button_to "New resto", new_resto_path, method: :get, class: "contrast"
   main
-    .container-fluid
-      = button_to "New resto", new_resto_path, method: :get
     .container
       = render @restos

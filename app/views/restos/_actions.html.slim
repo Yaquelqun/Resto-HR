@@ -1,6 +1,6 @@
-= button_to "Delete", resto_path(resto), method: :delete, class: "secondary"
-= button_to "Edit", edit_resto_path(resto), method: :get
 - if current_user.restos.include? resto
-  = button_to "Already registered", nil, disabled: true, class: "contrast"
+  = button_to "Already registered", nil, disabled: true
 - else
-  = button_to "Participate", participations_path(resto_id: resto.id), class: "contrast"
+  = button_to "Participate", participations_path(resto_id: resto.id)
+= button_to "Edit", edit_resto_path(resto), method: :get, class: 'secondary'
+= button_to "Delete", resto_path(resto), method: :delete, class: "secondary"
