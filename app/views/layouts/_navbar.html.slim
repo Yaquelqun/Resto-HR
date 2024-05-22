@@ -3,9 +3,9 @@ nav
     li
       = link_to "Home", root_path
   ul
-    = link_to "See Restos", restos_path
+    = link_to "See Restos", restos_path if user_signed_in?
   ul
-    = link_to "My Participations", participations_path
+    = link_to "My Participations", participations_path if user_signed_in?
   ul
     - if user_signed_in?
       li
