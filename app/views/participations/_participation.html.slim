@@ -2,6 +2,6 @@ article
   .container-fluid
     .grid
       .
-        = link_to participation.resto.humanized_description, resto_path(participation.resto)
+        = link_to participation.resto.code_name, resto_path(participation.resto)
       = button_to "Add Feedback", new_participation_feedback_path(participation_id: participation), method: :get
       = button_to "Delete", participation_path(participation), method: :delete, class: "secondary"

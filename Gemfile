@@ -14,6 +14,7 @@ gem "jbuilder"
 gem 'slim-rails'
 gem 'simple_form'
 gem "redis", ">= 4.0.1"
+gem "faker" # In production because i wanna use it to generate readable identifiers
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 

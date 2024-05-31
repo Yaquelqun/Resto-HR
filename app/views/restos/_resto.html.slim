@@ -1,6 +1,5 @@
 article
   .container-fluid
     .grid
-      .
-        = link_to resto.humanized_description, resto_path(resto)
+      = link_to resto.code_name + ": " + resto.humanized_date, resto_path(resto)
       = render "actions", resto: resto

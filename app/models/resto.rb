@@ -3,11 +3,17 @@ class Resto < ApplicationRecord
   has_many :users, through: :participations
   has_many :feedbacks, through: :participations
 
-  def humanized_description
-    humanized_date + " " + "participants: #{users.count}"
-  end
+  before_create :generate_code_name
 
   def humanized_date
     date.strftime("%A, %B %d, %Y")
+  end
+
+  private
+
+  def generate_code_name
+    potential_name = "#{Faker::Color.color_name}-#{Faker::Creature::Animal.name}"
+    return generate_code_name if Resto.exists?(code_name: potential_name)
+    self.code_name = potential_name 
   end
 end
