@@ -1,4 +1,6 @@
 class Resto < ApplicationRecord
+  MATCHINGS_LIMIT = 6
+
   has_many :participations, dependent: :destroy
   has_many :users, through: :participations
   has_many :feedbacks, through: :participations

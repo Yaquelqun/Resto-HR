@@ -8,7 +8,10 @@ Rails.application.routes.draw do
 
   root "pages#landing"
 
-  resources :restos
+  resources :restos do
+    resources :matchings, only: :create, controller: "restos/matchings"
+  end
+
   resources :participations, only: %i[ index create destroy] do
     resources :feedbacks, controller: 'participations/feedbacks'
   end
