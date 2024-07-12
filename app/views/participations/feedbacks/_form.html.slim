@@ -3,7 +3,7 @@
       .error-message
         = feedback.errors.full_messages.to_sentence.capitalize
 
-  = f.association :target, label_method: :pseudo, prompt: 'Choose a target'
+  = f.association :target, collection: feedback.participation.siblings.includes(:user).map(&:user), label_method: :pseudo, prompt: 'Choose a target'
   .grid
     = button_to "Cancel", participation_path(id: feedback.participation_id), method: :get, class: "secondary"
     = f.submit class: "btn btn--secondary"
