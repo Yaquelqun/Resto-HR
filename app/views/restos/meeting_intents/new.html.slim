@@ -3,7 +3,7 @@ main.container
 
   .header
     h1
-      |New Feedback
+      |New Meeting Intent
   article
     .container-fluid
-      = render "form", feedback: @feedback
+      = render "form", meeting_intent: @meeting_intent, possible_targets: @possible_targets

@@ -6,7 +6,7 @@ en:
     labels:
       resto:
         date: Date
-      feedback:
+      meeting_intent:
         target: Who do you want to give feedback to ?
 
   helpers:

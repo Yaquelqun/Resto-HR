@@ -8,11 +8,11 @@ table
       th scope="col"
         | Status
   tbody
-    - feedbacks.each do |feedback|
+    - meeting_intents.each do |meeting_intent|
       tr
         th scope="row"
-          = feedback.user.pseudo
+          = meeting_intent.user.pseudo
         td
-          = feedback.target.pseudo
+          = meeting_intent.target.pseudo
         td
-          = feedback.state
+          = meeting_intent.state

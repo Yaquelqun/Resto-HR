@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_06_130247) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_29_144801) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "feedbacks", force: :cascade do |t|
-    t.bigint "participation_id", null: false
+  create_table "meeting_intents", force: :cascade do |t|
+    t.bigint "resto_id", null: false
     t.bigint "target_id", null: false
-    t.string "state"
+    t.bigint "initiator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["participation_id"], name: "index_feedbacks_on_participation_id"
-    t.index ["target_id"], name: "index_feedbacks_on_target_id"
+    t.index ["initiator_id"], name: "index_meeting_intents_on_initiator_id"
+    t.index ["resto_id"], name: "index_meeting_intents_on_resto_id"
+    t.index ["target_id"], name: "index_meeting_intents_on_target_id"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -55,5 +56,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_06_130247) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "feedbacks", "users", column: "target_id"
+  add_foreign_key "meeting_intents", "users", column: "initiator_id"
+  add_foreign_key "meeting_intents", "users", column: "target_id"
 end

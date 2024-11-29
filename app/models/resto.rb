@@ -3,7 +3,7 @@ class Resto < ApplicationRecord
 
   has_many :participations, dependent: :destroy
   has_many :users, through: :participations
-  has_many :feedbacks, through: :participations
+  has_many :meeting_intents
 
   before_create :generate_code_name
 

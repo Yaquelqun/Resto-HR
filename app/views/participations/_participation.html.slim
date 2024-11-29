@@ -3,5 +3,5 @@ article
     .grid
       .
         = link_to participation.resto.code_name, resto_path(participation.resto)
-      = button_to "Add Feedback", new_participation_feedback_path(participation_id: participation), method: :get
+      = button_to "Add Meeting Intent", new_resto_meeting_intent_path(resto_id: participation.resto_id), method: :get
       = button_to "Delete", participation_path(participation), method: :delete, class: "secondary"

@@ -10,9 +10,8 @@ Rails.application.routes.draw do
 
   resources :restos do
     resources :matchings, only: :create, controller: "restos/matchings"
+    resources :meeting_intents, only: %i[create new], controller: "restos/meeting_intents"
   end
 
-  resources :participations, only: %i[ index create destroy] do
-    resources :feedbacks, controller: 'participations/feedbacks'
-  end
+  resources :participations, only: %i[ index create destroy]
 end

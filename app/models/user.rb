@@ -10,9 +10,8 @@ class User < ApplicationRecord
 
   has_many :participations
   has_many :restos, through: :participations
-  has_many :feedbacks, through: :participations
-
-  has_many :received_feedbacks, class_name: "Feedback", inverse_of: :target
+  has_many :initiated_meeting_intents, class_name: 'MeetingIntent', foreign_key: 'initiator_id'
+  has_many :targeted_meeting_intents, class_name: 'MeetingIntent', foreign_key: 'target_id'
 
   validates :role, inclusion: { in: ROLES }
 end
