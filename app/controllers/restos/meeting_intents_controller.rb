@@ -14,7 +14,7 @@ module Restos
 
       if @meeting_intent.save
         flash[:success] = "Your meeting_intent intent has been registered"
-        redirect_to resto_path(@meeting_intent.resto)
+        redirect_to restos_path
       else
         flash[:error] = "There was a problem saving the meeting_intent infos"
         puts @meeting_intent.errors.full_messages.to_sentence.capitalize
