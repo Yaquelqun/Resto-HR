@@ -1,4 +1,4 @@
-class CreateMatchings
+class CreateMeetings
   attr_reader :resto
 
   def initialize(resto:)
@@ -6,7 +6,7 @@ class CreateMatchings
   end
 
   def call
-    remaining_intents = accept_direct_matchings(resto.intents)
+    remaining_intents = accept_direct_matchings(resto.meeting_intents)
     #the remaining intents are the one that were only asked by one of the two.
     fill_intent_schedule(remaining_intents)
   end
@@ -16,7 +16,7 @@ class CreateMatchings
   # First we want to accept all intents that were asked from both sides
   def accept_direct_matchings(intents)
     # this gives us all pairings where both users want to talk to eachother
-    intents.pluck(:participation_id, :target_id).map(&:sort).tally.select { _2 >= 2 }.each do |targets, _count|
+    intents.pluck(:initiator_id, :target_id).map(&:sort).tally.select { _2 >= 2 }.each do |targets, _count|
       matches = intents.select { targets.includes(_1.participation_id) && target.includes(_1.target_id) }
       intents -= matches
       matches.update_all(state: intent::PLANNED)
