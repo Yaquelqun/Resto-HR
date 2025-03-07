@@ -32,23 +32,22 @@ class RestosController < ApplicationController
   def update
     @resto = Resto.find(params[:id])
     if @resto.update(resto_params)
-      flash[:success] = "Resto successfully updated for the #{@resto.date}"
       redirect_to restos_path
     else
-      flash[:error] = "There was a problem saving the resto"
-      render :edit
+      render :edit, status: :unprocessable_entity, notice: "There was a problem saving the resto"
     end
   end
 
   def destroy
-    resto = Resto.find(params[:id])
+    @resto = Resto.find(params[:id])
 
-    if resto.destroy
-      flash[:success] = "Resto for the #{resto.date} successfully destroyed"
-      redirect_to restos_path
+    if @resto.destroy
+      respond_to do |format|
+        format.html { redirect_to restos_path, notice: "resto was destroyed" }
+        format.turbo_stream
+      end
     else
-      flash[:error] = "There was a problem destroying the resto"
-      redirect_to restos_path
+      redirect_to restos_path, status: :unprocessable_entity, notice: "There was a problem destroying the resto"
     end
   end
 
