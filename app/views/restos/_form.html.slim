@@ -2,6 +2,10 @@
   - if @resto.errors.any?
     .blockquote style="color: red;"
       = @resto.errors.full_messages.to_sentence.capitalize
-  = f.input :date, as: :date, html5: true
+
+  fieldset.grid
+    - if @resto.code_name
+      = f.input :code_name, label: 'name', disabled: true, html5: true
+    = f.input :date, as: :date, html5: true
   = f.submit
 = button_to "Cancel", restos_path, class: "secondary", method: :get
