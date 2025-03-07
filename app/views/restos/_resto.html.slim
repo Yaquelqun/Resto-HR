@@ -2,5 +2,5 @@
   article
     .container
       .grid
-        = link_to resto.code_name + ": " + resto.humanized_date, resto_path(resto)
+        = link_to resto.code_name + ": " + resto.humanized_date, resto_path(resto), "data-turbo": false 
         = render "actions", resto: resto
