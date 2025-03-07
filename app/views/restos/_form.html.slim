@@ -1,8 +1,7 @@
 = simple_form_for @resto, html: { class: "item form" } do |f|
   - if @resto.errors.any?
-      .error-message
-        = @resto.errors.full_messages.to_sentence.capitalize
-
+    .blockquote style="color: red;"
+      = @resto.errors.full_messages.to_sentence.capitalize
   = f.input :date, as: :date, html5: true
   = f.submit
 = button_to "Cancel", restos_path, class: "secondary", method: :get

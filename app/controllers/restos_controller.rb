@@ -15,11 +15,12 @@ class RestosController < ApplicationController
   def create
     @resto = Resto.new(resto_params)
     if @resto.save
-      flash[:success] = "New Resto successfully planned for the #{@resto.date}"
-      redirect_to restos_path
+      respond_to do |format|
+        format.html { redirect_to restos_path, notice: "New Resto successfully planned for the #{@resto.date}" }
+        format.turbo_stream
+      end
     else
-      flash[:error] = "There was a problem saving the resto"
-      render :new
+      render :new, status: :unprocessable_entity, notice: "There was a problem saving the resto"
     end
   end
 

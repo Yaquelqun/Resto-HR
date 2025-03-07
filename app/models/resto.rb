@@ -5,6 +5,8 @@ class Resto < ApplicationRecord
   has_many :users, through: :participations
   has_many :meeting_intents
 
+  validates_presence_of :date
+
   before_create :generate_code_name
 
   def humanized_date
