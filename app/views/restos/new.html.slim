@@ -4,5 +4,7 @@ main.container
   .header
     h1
       |New Resto
-
-= render "form", resto: @resto
+= turbo_frame_tag "new_resto"
+  article
+    .container-fluid
+      = render "form", resto: @resto

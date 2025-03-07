@@ -4,5 +4,5 @@
         = @resto.errors.full_messages.to_sentence.capitalize
 
   = f.input :date, as: :date, html5: true
-  = link_to "Cancel", restos_path, class: "btn btn--light"
-  = f.submit class: "btn btn--secondary"
+  = f.submit
+= button_to "Cancel", restos_path, class: "secondary", method: :get
