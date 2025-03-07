@@ -4,6 +4,5 @@
         = meeting_intent.errors.full_messages.to_sentence.capitalize
 
   = f.association :target, collection: possible_targets, label_method: :pseudo, prompt: 'Choose a target'
-  .grid
-    = button_to "Cancel", participations_path, method: :get, class: "secondary"
-    = f.submit class: "btn btn--secondary"
+  = f.submit class: "btn btn--secondary"
+= button_to "Cancel", @form_return_path, method: :get, class: "secondary"

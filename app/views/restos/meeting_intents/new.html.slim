@@ -4,6 +4,7 @@ main.container
   .header
     h1
       |New Meeting Intent
-  article
-    .container-fluid
-      = render "form", meeting_intent: @meeting_intent, possible_targets: @possible_targets
+  = turbo_frame_tag @resto
+    article
+      .container-fluid
+        = render "form", meeting_intent: @meeting_intent, possible_targets: @possible_targets, return_path: @form_return_path

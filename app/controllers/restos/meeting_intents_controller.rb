@@ -3,6 +3,7 @@ module Restos
     def new
       @meeting_intent = resto.meeting_intents.new(initiator_id: current_user.id)
       @possible_targets = resto.users.where.not(id: [current_user.id] + resto.meeting_intents.where(initiator_id: current_user.id).pluck(:target_id))
+      @form_return_path = params[:from] == 'restos' ? restos_path : participations_path
     end
 
     def create

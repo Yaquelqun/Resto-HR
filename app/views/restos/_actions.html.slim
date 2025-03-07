@@ -1,5 +1,5 @@
 - if current_user.restos.include? resto
-  = button_to "Create meeting intent", new_resto_meeting_intent_path(resto_id: resto.id), method: :get, class: 'outline'
+  = link_to "Create meeting intent", new_resto_meeting_intent_path(resto_id: resto.id, from: 'restos'), role: 'button'
 - else
   = button_to "Participate", participations_path(resto_id: resto.id)
 = button_to "Edit", edit_resto_path(resto), method: :get, class: 'secondary'
