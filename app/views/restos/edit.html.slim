@@ -4,5 +4,5 @@ main.container
   .header
     h1
       |Resto Edition
-
-= render "form", resto: @resto
+= turbo_frame_tag @resto
+  = render "form", resto: @resto

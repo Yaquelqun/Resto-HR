@@ -1,5 +1,6 @@
-article
-  .container-fluid
-    .grid
-      = link_to resto.code_name + ": " + resto.humanized_date, resto_path(resto)
-      = render "actions", resto: resto
+= turbo_frame_tag resto
+  article
+    .container-fluid
+      .grid
+        = link_to resto.code_name + ": " + resto.humanized_date, resto_path(resto)
+        = render "actions", resto: resto
