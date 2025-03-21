@@ -3,9 +3,7 @@ module Restos
 
     def create
       resto = Resto.find(params[:id])
-      CreateMeetings.new(resto: resto).call
-
-      flash[:success] = "matching created for resto #{resto.code_name}"
+      fail!
       redirect_to resto_path(resto)
     end
   end

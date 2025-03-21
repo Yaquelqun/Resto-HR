@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root "pages#landing"
 
   resources :restos do
-    resources :matchings, only: :create, controller: "restos/matchings"
+    resources :meetings, only: :create, controller: "restos/meetings"
     resources :meeting_intents, only: %i[create new], controller: "restos/meeting_intents"
   end
 
