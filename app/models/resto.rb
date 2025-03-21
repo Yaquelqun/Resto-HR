@@ -3,8 +3,8 @@ class Resto < ApplicationRecord
 
   has_many :participations, dependent: :destroy
   has_many :users, through: :participations
-  has_many :meeting_intents
-  has_many :meetings
+  has_many :meeting_intents, dependent: :destroy
+  has_many :meetings, dependent: :destroy
 
   validates_presence_of :date
   validates :state, inclusion: { in: %w(waiting_for_participants ongoing) }
