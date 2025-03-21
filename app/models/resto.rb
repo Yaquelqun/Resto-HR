@@ -4,10 +4,12 @@ class Resto < ApplicationRecord
   has_many :participations, dependent: :destroy
   has_many :users, through: :participations
   has_many :meeting_intents
+  has_many :meetings
 
   validates_presence_of :date
   validates :state, inclusion: { in: %w(waiting_for_participants ongoing) }
 
+  scope :waiting_for_participants, -> { where(state: "waiting_for_participants") }
   before_create :generate_code_name
 
   def humanized_date

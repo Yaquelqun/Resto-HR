@@ -25,13 +25,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_21_150024) do
     t.index ["target_id"], name: "index_meeting_intents_on_target_id"
   end
 
-  create_table "meeting_users_tables", force: :cascade do |t|
+  create_table "meeting_users", force: :cascade do |t|
     t.bigint "meeting_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["meeting_id"], name: "index_meeting_users_tables_on_meeting_id"
-    t.index ["user_id"], name: "index_meeting_users_tables_on_user_id"
+    t.index ["meeting_id"], name: "index_meeting_users_on_meeting_id"
+    t.index ["user_id"], name: "index_meeting_users_on_user_id"
   end
 
   create_table "meetings", force: :cascade do |t|
@@ -78,7 +78,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_21_150024) do
 
   add_foreign_key "meeting_intents", "users", column: "initiator_id"
   add_foreign_key "meeting_intents", "users", column: "target_id"
-  add_foreign_key "meeting_users_tables", "meetings"
-  add_foreign_key "meeting_users_tables", "users"
+  add_foreign_key "meeting_users", "meetings"
+  add_foreign_key "meeting_users", "users"
   add_foreign_key "meetings", "restos"
 end
