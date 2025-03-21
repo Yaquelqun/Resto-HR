@@ -5,6 +5,7 @@
     .container-fluid
       .grid
         = render "restos/show/general_information", resto: @resto
-        = render "restos/show/actions", resto: @resto
+        . data-turbo="false"
+          = render "restos/show/actions", resto: @resto
     .container-fluid
       = render "restos/show/meeting_intents_table", meeting_intents: @resto.meeting_intents.includes(:initiator, :target)

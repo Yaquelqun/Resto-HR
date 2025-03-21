@@ -4,8 +4,8 @@
       .grid
         h1
           | Restos
-        = button_to "New resto", new_resto_path, method: :get, data: { turbo_frame: "new_resto" }
+        = turbo_frame_tag "new_resto"
+          = button_to "New resto", new_resto_path, method: :get, data: { turbo_frame: "new_resto" }
   main
-    = turbo_frame_tag "new_resto"
     = turbo_frame_tag "restos"
       = render @restos
