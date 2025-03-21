@@ -6,6 +6,7 @@ class Resto < ApplicationRecord
   has_many :meeting_intents
 
   validates_presence_of :date
+  validates :state, inclusion: { in: %w(waiting_for_participants ongoing) }
 
   before_create :generate_code_name
 
