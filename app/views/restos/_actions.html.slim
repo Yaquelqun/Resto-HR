@@ -1,6 +1,6 @@
 - if current_user.restos.include? resto
   = link_to "Create meeting intent", new_resto_meeting_intent_path(resto_id: resto.id, from: 'restos'), role: 'button'
 - else
-  = button_to "Participate", participations_path(resto_id: resto.id)
-= button_to "Edit", edit_resto_path(resto), method: :get, class: 'secondary'
-= button_to "Delete", resto_path(resto), method: :delete, class: "secondary"
+  = link_to "Participate", participations_path(resto_id: resto.id), role: 'button'
+= link_to "Edit", edit_resto_path(resto), method: :get, class: 'secondary', role: 'button'
+= link_to "Delete", resto_path(resto), method: :delete, class: "secondary", role: 'button'

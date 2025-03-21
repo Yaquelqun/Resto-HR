@@ -2,4 +2,6 @@ article
   header
     h5
       | Actions
-  = render "actions", resto: @resto
+  .container style="display:grid;grid-row-gap: 0.5rem;"
+    = render "actions", resto: resto
+    = button_to "Close Participations and Create Meetings", resto_meetings_path(resto_id: resto.id)
