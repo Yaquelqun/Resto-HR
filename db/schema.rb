@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_29_144801) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_21_145635) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "meeting_intents", force: :cascade do |t|
     t.bigint "resto_id", null: false
@@ -23,6 +23,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_29_144801) do
     t.index ["initiator_id"], name: "index_meeting_intents_on_initiator_id"
     t.index ["resto_id"], name: "index_meeting_intents_on_resto_id"
     t.index ["target_id"], name: "index_meeting_intents_on_target_id"
+  end
+
+  create_table "meeting_users_tables", force: :cascade do |t|
+    t.bigint "meeting_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meeting_id"], name: "index_meeting_users_tables_on_meeting_id"
+    t.index ["user_id"], name: "index_meeting_users_tables_on_user_id"
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.bigint "resto_id", null: false
+    t.string "place"
+    t.datetime "date"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resto_id"], name: "index_meetings_on_resto_id"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -58,4 +77,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_29_144801) do
 
   add_foreign_key "meeting_intents", "users", column: "initiator_id"
   add_foreign_key "meeting_intents", "users", column: "target_id"
+  add_foreign_key "meeting_users_tables", "meetings"
+  add_foreign_key "meeting_users_tables", "users"
+  add_foreign_key "meetings", "restos"
 end
