@@ -9,3 +9,5 @@
           = render "restos/show/actions", resto: @resto
     .container-fluid
       = render "restos/show/meeting_intents_table", meeting_intents: @resto.meeting_intents.includes(:initiator, :target)
+    .container-fluid
+      = render "restos/show/meetings_table", meetings: @resto.meetings

@@ -1,0 +1,25 @@
+details
+  summary.outline role="button"
+    = "Meetings: #{meetings.count}"
+  table
+    thead
+      tr
+        th scope="col"
+          | between
+        th scope="col"
+          | and
+        th scope="col"
+          | place
+        th scope="col"
+          | time
+    tbody
+      - meetings.each do |meeting|
+        tr
+          th scope="row"
+            = meeting.users.first.pseudo
+          td
+            = meeting.users.last.pseudo
+          td
+            = "TBD"
+          td
+            = "TBD"
