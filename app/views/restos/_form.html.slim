@@ -6,6 +6,6 @@
   fieldset.grid
     - if @resto.code_name
       = f.input :code_name, label: 'name', disabled: true, html5: true
-    = f.input :date, as: :date, html5: true
+    = f.input :date, as: :datetime, html5: true
   = f.submit
 = button_to "Cancel", restos_path, class: "secondary", method: :get
